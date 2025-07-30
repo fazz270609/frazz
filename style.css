@@ -13,8 +13,9 @@ body {
 }
 
 #flower-frame {
-  width: 60%;
-  animation: pulse 2s infinite ease-in-out;
+  width: 70%;
+  height: 90%;
+  animation: pulse 3s infinite ease-in-out;
 }
 
 @keyframes pulse {

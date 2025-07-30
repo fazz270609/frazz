@@ -1,12 +1,17 @@
+/* Reset */
 * {
   box-sizing: border-box;
 }
+
+/* Variabel global */
 :root {
   --tongue: #c12115;
   --pupil: #fff;
   --icing: #f2f2f2;
   --stroke: #1a1a1a;
 }
+
+/* Body dan variabel tema */
 body {
   --frosting: hsl(var(--frosting-hue, 0), 100%, 55%);
   --lightness: 50;
@@ -25,14 +30,19 @@ body {
   min-height: 100vh;
   background: hsl(180, 30%, calc(var(--lightness, 50) * 1%));
 }
+
+/* Spasi teks */
 .whitespace {
   width: 7px;
 }
+
+/* Tombol utama */
 .birthday-button {
   position: relative;
   transform: scale(0.6);
   cursor: pointer;
 }
+
 .birthday-button__text {
   position: absolute;
   top: 0;
@@ -47,10 +57,13 @@ body {
   font-family: sans-serif;
   font-weight: bold;
 }
+
 .birthday-button__text .char {
   display: inline-block;
   color: hsl(var(--hue, 0), calc(var(--char-sat, 0) * 1%), calc(var(--char-light, 0) * 1%));
 }
+
+/* Glow efek */
 .birthday-button:before {
   content: '';
   position: absolute;
@@ -65,6 +78,7 @@ body {
   filter: blur(15px);
   opacity: var(--flame);
 }
+
 .birthday-button:after {
   content: '';
   height: 30px;
@@ -77,6 +91,7 @@ body {
   transform: translate(-50%, -50%) scale(calc(var(--flame) * 1));
   opacity: var(--flame);
 }
+
 .birthday-button__button {
   width: 240px;
   height: 100px;
@@ -86,6 +101,7 @@ body {
   border-radius: 14px;
   cursor: pointer;
 }
+
 .birthday-button__cake {
   position: absolute;
   bottom: 0;
@@ -94,50 +110,59 @@ body {
   width: 289.5px;
   display: none;
 }
+
+/* Bagian dekorasi kue */
 .cake__eye-body {
   fill: var(--stroke);
 }
+
 .cake__eye-pupil {
   fill: var(--pupil);
 }
+
 .cake__tongue {
   fill: var(--tongue);
 }
+
 .cake__mouth-opening {
   fill: var(--stroke);
   stroke: var(--stroke);
 }
+
 .cake__sprinkle {
   --sprinkle: hsl(var(--sprinkle-hue, 0), 100%, 75%);
   fill: var(--sprinkle);
 }
-.cake__frosting--start {
-  fill: var(--frosting);
-}
+
+.cake__frosting--start,
 .cake__frosting--duplicate {
   fill: var(--frosting);
 }
+
+/* Api lilin */
 .candle__flame {
   opacity: var(--flame, 0);
 }
+
 .candle__flame-outer {
   fill: #ff711f;
 }
+
 .candle__flame-inner {
   fill: #edca1d;
 }
+
 .face__stroke {
   stroke: var(--stroke);
 }
-.cake__candle:nth-of-type(1) {
-  --flame: 0;
-}
-.cake__candle:nth-of-type(2) {
-  --flame: 0;
-}
+
+.cake__candle:nth-of-type(1),
+.cake__candle:nth-of-type(2),
 .cake__candle:nth-of-type(3) {
   --flame: 0;
 }
+
+/* Volume toggle */
 label {
   height: 44px;
   width: 44px;
@@ -146,6 +171,7 @@ label {
   right: 1rem;
   cursor: pointer;
 }
+
 label > svg {
   position: absolute;
   height: 100%;
@@ -153,12 +179,15 @@ label > svg {
   top: 0;
   left: 0;
 }
+
 label path {
   fill: #476b6b;
 }
+
 label svg:nth-of-type(1) {
   display: none;
 }
+
 [type='checkbox'] {
   height: 0;
   width: 0;
@@ -166,9 +195,11 @@ label svg:nth-of-type(1) {
   top: 0;
   left: 100%;
 }
+
 :checked ~ label svg:nth-of-type(1) {
   display: block;
 }
+
 :checked ~ label svg:nth-of-type(2) {
   display: none;
 }

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Letter Animation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #fce4ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    #envelope {
+      position: relative;
+      width: 300px;
+      height: 180px;
+      background: #f48fb1;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .flap {
+      position: absolute;
+      top: -90px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 150px solid transparent;
+      border-right: 150px solid transparent;
+      border-bottom: 90px solid #f06292;
+      transform-origin: bottom;
+      transition: transform 0.5s;
+    }
+
+    .letter {
+      background: white;
+      width: 90%;
+      height: 80%;
+      margin: 20px auto;
+      border-radius: 8px;
+      text-align: center;
+      padding-top: 20px;
+      transform: translateY(100%);
+      transition: transform 0.5s;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .hearts {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .hearts span {
+      font-size: 24px;
+      margin: 0 5px;
+      animation: float 1.5s infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    .buttons button {
+      background: none;
+      border: 2px solid #f06292;
+      color: #f06292;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 0 5px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .buttons button:hover {
+      background: #f06292;
+      color: white;
+    }
+
+    /* kondisi terbuka */
+    .open .flap {
+      transform: rotateX(180deg);
+    }
+    .open .letter {
+      transform: translateY(0);
+    }
+    .open .hearts {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="envelope">
+      <div class="flap"></div>
+      <div class="letter">
+        <p>💌 Ini surat spesial untukmu!</p>
+      </div>
+      <div class="hearts">
+        <span>❤</span>
+        <span>❤</span>
+        <span>❤</span>
+      </div>
+    </div>
+    <div class="buttons">
+      <button id="openBtn">OPEN</button>
+      <button id="resetBtn">RESET</button>
+    </div>
+  </div>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    const openBtn = document.getElementById("openBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    openBtn.addEventListener("click", () => {
+      envelope.classList.add("open");
+    });
+
+    resetBtn.addEventListener("click", () => {
+      envelope.classList.remove("open");
+    });
+  </script>
+</body>
+</html>
